@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
 
-
+//double jump
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             doubleJump = false;
@@ -138,17 +138,17 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
     }
-
+//ground check
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
-
+//wall check
     private bool IsWalled()
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
-
+//wall slide
     private void WallSlide()
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
@@ -162,7 +162,7 @@ public class PlayerMove : MonoBehaviour
             isWallSliding = false;
         }
     }
-
+//wall jump
     private void WallJump()
     {
         if (isWallSliding)
@@ -202,7 +202,7 @@ public class PlayerMove : MonoBehaviour
         isWallJumping = false;
     }
 
-
+//flip sprite
      private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
@@ -214,7 +214,7 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
+//dash
     private IEnumerator Dash()
     {
         canDash = false;
@@ -230,7 +230,7 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
-
+//partical
     void Creatdust()
     {
         dust.Play();
