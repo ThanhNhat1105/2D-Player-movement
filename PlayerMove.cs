@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
 
-//double jump
+//double jump and jump
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             doubleJump = false;
@@ -75,7 +75,7 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
-
+//coyote time
         if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
@@ -84,7 +84,7 @@ public class PlayerMove : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
-
+//jump buffer
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
