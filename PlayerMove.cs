@@ -151,7 +151,7 @@ public class PlayerMove : MonoBehaviour
 //wall slide (this desn't work and idk why, it can be fix)
     private void WallSlide()
     {
-        if (IsWalled() && !IsGrounded() && horizontal != 0f)
+        if (IsWalled() && !IsGrounded() && horizontal != -1f)
         {
            
             isWallSliding = true;
