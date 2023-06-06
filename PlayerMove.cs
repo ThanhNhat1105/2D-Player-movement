@@ -148,7 +148,7 @@ public class PlayerMove : MonoBehaviour
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
-//wall slide
+//wall slide (this desn't work and idk why, it can be fix)
     private void WallSlide()
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
